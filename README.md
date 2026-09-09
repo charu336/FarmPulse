@@ -3,6 +3,38 @@
 *FarmPulse* is a Flutter mobile application designed to help farmers monitor and manage biosecurity measures on their farms. The app currently focuses on *farmer-facing features* like risk assessment, training, compliance tracking, and notifications.
 
 ---
+# FarmPulse – ML Risk Assessment Prototype
+The risk assessment component treats outbreak-risk prediction as a **three-class classification problem**.
+
+Based on farm-related inputs, the model predicts one of three risk levels:
+
+- Low
+- Medium
+- High
+
+The trained ML model is exposed through a **FastAPI REST API**, allowing the application to send farm data and receive a risk prediction.
+
+## System Architecture
+
+```text
+Farm Data
+    |
+    v
+Data Preparation
+    |
+    v
+Decision Tree Classifier
+    |
+    v
+Risk Prediction
+(Low / Medium / High)
+    |
+    v
+FastAPI
+    |
+    v
+Application / Dashboard / Alerts
+
 
 ## Features (Available Now)
 
