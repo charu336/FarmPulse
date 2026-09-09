@@ -35,7 +35,7 @@ FastAPI
     v
 Application / Dashboard / Alerts
 ```
-Features Used
+## Features Used
 
 The prototype uses the following farm-related features:
 
