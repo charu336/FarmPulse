@@ -1,11 +1,22 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 import pandas as pd
 import joblib
 
-app = FastAPI()
+app = FastAPI(title="FarmPulse Risk Assessment API")
 
-# Load the trained model
+# Load the trained ML model
 model = joblib.load("farm_risk_model.pkl")
+
+
+# Define the expected input structure
+class FarmData(BaseModel):
+    herd_size: int
+    vaccination_rate: float
+    previous_cases: int
+    mortality_rate: float
+    biosecurity_score: float
+    nearby_outbreak: int
 
 
 @app.get("/")
@@ -14,12 +25,12 @@ def home():
 
 
 @app.post("/predict")
-def predict_risk(data: dict):
+def predict_risk(data: FarmData):
 
-    # Convert incoming data into a DataFrame
-    farm_data = pd.DataFrame([data])
+    # Convert validated input into a DataFrame
+    farm_data = pd.DataFrame([data.model_dump()])
 
-    # Make prediction
+    # Generate prediction
     prediction = model.predict(farm_data)
 
     return {
