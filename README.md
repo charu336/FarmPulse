@@ -35,8 +35,18 @@ FastAPI
     v
 Application / Dashboard / Alerts
 
+Features Used
 
-## Features (Available Now)
+The prototype uses the following farm-related features:
+
+Feature	Description
+herd_size	Number of animals in the farm
+vaccination_rate	Percentage of vaccinated animals
+previous_cases	Previous disease cases
+mortality_rate	Farm mortality rate
+biosecurity_score	Biosecurity assessment score
+nearby_outbreak	Indicates whether an outbreak is present nearby
+
 
 ### *Farmer-Facing Features*
 
